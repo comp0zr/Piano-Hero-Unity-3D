@@ -1,0 +1,198 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf600
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;\csgray\c100000;}
+\margl1440\margr1440\vieww17280\viewh11600\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b\fs26 \cf0 \ul \ulc0 Symbols:\ulnone \
+\
+% \'97 
+\b0 Precedes information related to constants (e.g. title, measure count, ending measure, etc.), written in the form 
+\b %KEY=VALUE
+\b0 . [ 
+\b %TITLE=MyTitle\'94 
+\b0 ]\
+\
+
+\b # \'97 
+\b0 Precedes information that effects groups of measures of any length greater than 0. This can include changes in the time signature, key signature, clef, etc., written in the form 
+\b #KEY:VALUE. 
+\b0 [ 
+\b #CLEF:bass 
+\b0 ]\
+\
+	
+\b #CLEF:\'85 \'97 
+\b0 Defines the clef (treble/bass)\
+
+\b 	#KS:N.m \'97 
+\b0 Defines the key signature, where 
+\i N 
+\i0 represents the letter name of the key and 
+\i m 
+\i0 represents major/minor (\'91M\'92 = major, \'91m\'92 = minor)\
+	
+\b #TS:n.d \'97 
+\b0 Defines the time signature, where 
+\i n 
+\i0 represents the numerator and 
+\i d 
+\i0 represents the denominator\
+	
+\b #REP:n.e \'97 
+\b0 Indicates that the following measures are repeated, with 
+\i n 
+\i0 representing the number of repetitions, and 
+\i e 
+\i0 representing the number of endings\
+	
+\b #END.x 
+\b0 \'97 Indicates that the following measures belong to ending number 
+\i x, 
+\i0 and will repeat back to most recent 
+\i #REP 
+\i0 instruction until 
+\i x 
+\i0 matches number of final ending\
+\
+
+\b | \'97 
+\b0 Denotes the end of an individual note\'92s data. [ 
+\b C.4.1| 
+\b0 ]\
+\
+
+\b \{x:y\} \'97 
+\b0 Defines the parameters of a measure, where 
+\i x 
+\i0 is the measure number and 
+\i y 
+\i0 is the number of notes contained within the measure. [ 
+\b \{1:2\}
+\b0  ]\
+\
+
+\b \{P(x:y):n\} \'97 
+\b0 Indicates that the following measure is a pickup measure, where 
+\i x 
+\i0 and 
+\i y 
+\i0 represents the time signature of the pickup bar, and 
+\i n 
+\i0 represents the number of notes. The time signature should refer only to the pickup bar, and should differ from the actual time signature. For example, to encode a quarter pickup for a piece in 4/4 time: 
+\b \{P(1:4):1\}
+\b0 \
+\
+
+\b + \'97 
+\b0 Indicates that the preceding pitch is sharp. [ F+ = \'93F# / F sharp\'94 ] \
+\
+
+\b - \'97 
+\b0 Indicates that the preceding pitch is flat. [ B- = \'93Bb / B flat\'94 ]\
+\
+
+\b n \'97 
+\b0 Indicates that the preceding pitch is natural. Used only if the \
+\
+* \'97 Follows an accidental marking (\'91+\'92, \'91-\'91, or \'92n\'92) to indicate a \'93courtesy\'94 accidental\
+\
+
+\b d \'97 
+\b0 Follows the duration value of a note entry to indicate that it is dotted\
+\
+
+\b [ N1.O,N2.O,etc. ].x \'97 
+\b0 Indicates that the following notes are contained in a block chord, with 
+\i N1, N2, 
+\i0 etc. representing each note\'92s letter name, and 
+\i O 
+\i0 representing the note\'92s octave number. 
+\i x 
+\i0 represents the duration of the chord\
+\
+
+\b R.x \'97 
+\b0 Indicates a rest, with 
+\i x 
+\i0 representing the rest\'92s duration\
+\
+
+\b T 
+\b0 \'97 Follows the duration value of a note (including 
+\i d 
+\i0 if it is dotted) to indicate the note is tied to the next entry\
+\
+===========================================\
+\
+\
+\
+Each measure\'92s data should be preceded by two values contained in curly braces, separated by a colon (without whitespace), the first value representing the number of the intended measure, and the second value representing the number of notes it contains.\
+\
+Each note entry requires three values (separated by periods, without whitespace): a character indicating the associated letter name of the note\'92s scale degree (e.g. \'93A\'94, \'93B\'94, \'93C\'94, etc.), an integer value defining the note\'92s octave (A0-C8), and an integer value representing the note\'92s duration (1 = whole, 2 = half, 4 = quarter, etc.). The vertical line symbol should follow each entry. Thus, to encode the following passage of Beethoven\'92s 
+\i F\'fcr Elise
+\i0 :\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs24 \cf0 {{\NeXTGraphic Pasted Graphic 1.tiff \width10800 \height1240
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs26 \cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\'85you would write:\
+\
+#CLEF:treble\
+#TS:3.8\
+\
+\{P(1:8):2\}\
+E.5.16|\
+D+.5.16|\
+\
+\{1:6\}\
+E.5.16|\
+D+.5.16|\
+E.5.16|\
+B.5.16|\
+Dn.5.16|\
+C.5.16|\
+\
+\{2:5\}\
+A.5.8|\
+R.16|\
+C.4.16|\
+E.4.16|\
+A.4.16|\
+\
+\{3:5\}\
+B.5.8|\
+R.16|\
+E.4.16|\
+G+.4.16|\
+B.5.16|\
+\
+\
+Another example, this time with chords:\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs24 \cf0 {{\NeXTGraphic Pasted Graphic.tiff \width6360 \height1720
+}¬}\
+\
+#CLEF:treble\
+#TS:4.4\
+#KS:Cm\
+\
+\{1:4\}\
+[E-.3,G.3,C.4].4T|\
+[E-.3,G.3,C.4].16d|\
+[G.3,C.4].32|\
+[G.3,Bn.3,D.4].16d|
+\fs26 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 [G.4,C.4,E-.4].32|\
+[An.3,C.4,E-.4].4\
+[Bn.3,D.4].8|\
+R.8|}
