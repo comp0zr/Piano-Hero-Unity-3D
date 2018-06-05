@@ -1,4 +1,7 @@
-# Piano-Hero-Unity-3D
+#########################################################
+#_________________Piano-Hero-Unity-3D___________________#
+#########################################################
+
 (Work in progress) Code in C# for an educational game that uses MIDI within the Unity 3D game engine. Ultimately intended to replicate mechanics similar to the Guitar Hero / Rock Band series.
 
 ====================
@@ -7,9 +10,9 @@ KEY FOR ENCODING:
 
 Symbols:
 
-% — Precedes information related to constants (e.g. title, measure count, ending measure, etc.), written in the form %KEY=VALUE. [ %TITLE=MyTitle” ]
+'%' — Precedes information related to constants (e.g. title, measure count, ending measure, etc.), written in the form %KEY=VALUE. [ %TITLE=MyTitle” ]
 
-# — Precedes information that effects groups of measures of any length greater than 0. This can include changes in the time signature, key signature, clef, etc., written in the form #KEY:VALUE. [ #CLEF:bass ]
+'#' — Precedes information that effects groups of measures of any length greater than 0. This can include changes in the time signature, key signature, clef, etc., written in the form #KEY:VALUE. [ #CLEF:bass ]
 
 	#CLEF:… — Defines the clef (treble/bass)
 	#KS:N.m — Defines the key signature, where N represents the letter name of the key and m represents major/minor (‘M’ = major, ‘m’ = minor)
@@ -17,19 +20,17 @@ Symbols:
 	#REP:n.e — Indicates that the following measures are repeated, with n representing the number of repetitions, and e representing the number of endings
 	#END.x — Indicates that the following measures belong to ending number x, and will repeat back to most recent #REP instruction until x matches number of final ending
 
-| — Denotes the end of an individual note’s data. [ C.4.1| ]
+'|' — Denotes the end of an individual note’s data. [ C.4.1| ]
 
 {x:y} — Defines the parameters of a measure, where x is the measure number and y is the number of notes contained within the measure. [ {1:2} ]
 
 {P(x:y):n} — Indicates that the following measure is a pickup measure, where x and y represents the time signature of the pickup bar, and n represents the number of notes. The time signature should refer only to the pickup bar, and should differ from the actual time signature. For example, to encode a quarter pickup for a piece in 4/4 time: {P(1:4):1}
 
-+ — Indicates that the preceding pitch is sharp. [ F+ = “F# / F sharp” ] 
++ — Indicates that the preceding pitch is sharp. [ F+ = F# / F sharp ] 
 
-- — Indicates that the preceding pitch is flat. [ B- = “Bb / B flat” ]
+- — Indicates that the preceding pitch is flat. [ B- = Bb / B flat ]
 
-n — Indicates that the preceding pitch is natural. Used only if the 
-
-* — Follows an accidental marking (‘+’, ‘-‘, or ’n’) to indicate a “courtesy” accidental
+n — Indicates that the preceding pitch is natural.  [ Bn = B natural ]
 
 d — Follows the duration value of a note entry to indicate that it is dotted
 
